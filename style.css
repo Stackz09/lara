@@ -1,78 +1,118 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+@-webkit-keyframes throb{
+  0%{
+    -webkit-transform: scale(1);
+	}
+  35%{
+	  -webkit-transform: scale(1.2);
+	}
+	85%{
+	  -webkit-transform: scale(1);
+	}		
+}
+
+html {
+  display: table;
+  width: 100%;
+  height: 100vmin;
+  table-layout: fixed;
+}
 
 body {
-  font-family: "Ubuntu", sans-serif;
-  background-color: rgb(30, 30, 30); /* Fundo cinza escuro */
-  color: rgb(230, 230, 230); /* Texto cinza claro */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Shadows Into Light';
+  color: #111;
+}
+
+.wrapper {
+  width: 90vmin;
+  height: 90vmin;
+  position: relative;
+  margin: 5vmin auto;
+}
+
+div.throb {
+  -webkit-animation: throb 0.5s infinite;
+  animation: throb 0.5s infinite;
+  animation-delay: 0.8s;
+
+}
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  width: 30vmin; height: 30vmin;
+  line-height: 30vmin;
+  display: inline-block;
+  position: absolute;
+  font-size: 30vmin;
   text-align: center;
+  transition: all 1s ease;
 }
 
-header {
-  background-color: rgb(152, 84, 216); /* Roxo suave */
-  padding: 40px 20px; /* Mais espaçamento para um visual mais equilibrado */
-  width: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil para destaque */
+label {
+  text-shadow: 3vmin 3vmin 10vmin rgba(0,0,0,0.5);
+}
+  label:hover {
+    color: #c32a2a;
+    cursor: pointer;
+  }
+
+#ck1 + label,
+#ck2 + label {
+  border-radius: 50%;
+  top: 0;
 }
 
-h1, h2 {
-  margin: 10px 0; /* Espaçamento entre os títulos */
-  color: rgb(255, 255, 255); /* Texto branco */
+#ck1:checked + label,
+#ck2:checked + label,
+#ck3:checked + label {
+  background: #c32a2a;
+  font-size: 0;
+  transition: all 1s ease;
 }
 
-button {
-  border-radius: 25px;
-  padding: 10px 30px; /* Aumentando o padding para um botão mais elegante */
-  background-color: rgb(0, 188, 212); /* Ciano */
-  color: rgb(255, 255, 255); /* Texto branco */
-  border: none;
-  margin: 20px 10px; /* Mais espaçamento entre os botões */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para destacar os botões */
+#ck1 + label {
+  left: 0;
 }
 
-button:hover {
-  background-color: rgb(0, 150, 168); /* Ciano mais escuro */
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais forte no hover */
+#ck2 + label {
+  right: 10vmin;
 }
 
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-  header {
-    padding: 30px 15px;
-  }
-
-  button {
-    padding: 10px 20px; /* Ajuste do padding para telas menores */
-    margin: 15px 5px; /* Ajuste do espaçamento entre os botões */
-    width: 80%; /* Botões ocupam 80% da largura da tela */
-  }
+#ck1:checked + label,
+#ck2:checked + label {
+  width: 54vmin; height: 54vmin;
+  border-radius: 50%;
+  line-height: 54vmin;
 }
 
-@media (max-width: 480px) {
-  header {
-    padding: 20px 10px;
-  }
+#ck2:checked + label {
+  right: 0;
+}
 
-  h1 {
-    font-size: 1.5em; /* Ajuste do tamanho da fonte do h1 */
-  }
+#ck3 + label {
+  bottom: 5vmin; left: 50%;
+  margin: 0 -9vmin;
+  background-color: white;
+}
 
-  h2 {
-    font-size: 1.2em; /* Ajuste do tamanho da fonte do h2 */
-  }
+#ck3:checked + label {
+  width: 49.5vmin; height: 49.5vmin;
+  bottom: 17.28vmin; left: 29.16vmin;
+  transform: rotate(45deg);
+  line-height: 4.86vmin;
+}
 
-  button {
-    padding: 10px 15px; /* Ajuste do padding para telas menores */
-    margin: 10px 5px; /* Ajuste do espaçamento entre os botões */
-    width: 90%; /* Botões ocupam 90% da largura da tela */
-  }
+span {
+  display: inline-block;
+  text-align: left;
+  position: absolute;
+  bottom: 0vmin; left: 0vmin;
+  margin-bottom: -3vmin;
+  font-size: 6vmin;
+  color: #999;
 }
